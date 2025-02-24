@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pwned Crypto Wallets</title>
+    <link rel="stylesheet" href="css/home.css">
+    <!-- Adicionando FontAwesome para os ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+<body>
+
+    <!-- Header Moderno -->
+    <header>
+        <nav>
+            <ul class="menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#how-it-works">How it Works</a></li>
+                <li><a href="#breach-records">Breaches</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#support">Support</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Fundo animado -->
+    <div class="background" id="home"></div>
+
+
+    <!-- Partículas piscando no fundo -->
+    <div class="blinking-particles"></div>
+
+
+
+    <!-- Container Principal -->
+    <main class="container">
+        <!-- Lado esquerdo: Imagem + Título + Descrição -->
+        <div class="left-content">
+            <img src="imgs/PwnedLogo.png" alt="Security Icon" class="security-image">
+            <h2>Protect Your Crypto Assets</h2>
+            <p>Pwned Wallet Check helps you verify if your crypto wallet has been compromised in known breaches. Stay safe by ensuring your funds remain secure. WE DO NOT STORE YOUR INFORMATION!!</p>
+        </div>
+
+        <!-- Lado direito: Título + Formulário -->
+        <div class="right-content">
+            <h1 class="main-title">Has my Wallet been Pwned?</h1>
+            
+            <p>Enter your wallet address below and verify if it has been compromised. WE DO NOT STORE YOUR INFORMATION!</p>
+
+            <div class="glass-form">
+                <form>
+                    <label for="wallet">Wallet Address</label>
+                    <input type="text" id="wallet" name="wallet" placeholder="Paste your wallet address here" required>
+
+                    <!-- Botão de Opções Avançadas -->
+                    <button type="button" class="advanced-options-btn" onclick="toggleAdvancedOptions()">
+                        Advanced Options <span class="arrow">▼</span>
+                    </button>
+
+                    <!-- Inputs Avançados Ocultos -->
+                    <div id="advanced-options" class="hidden">
+                        <label for="name">Private Key</label>
+                        <input type="text" id="key" name="key" placeholder="Paste your Private Key here">
+
+                        <label for="email">Seed Phrase</label>
+                        <input type="text" id="seed" name="seed" placeholder="Paste your Seed Phrase here">
+                    </div>
+
+                    <!-- Botão de Verificação -->
+                    <button type="submit">Check Now</button>
+                </form>
+            </div>
+        </div>
+
+
+    </main>
+
+    <!-- Seção "How it Works" -->
+        <section id="how-it-works" class="how-it-works">
+            <h2>How It Works</h2>
+            <p>Learn how the Pwned Wallet Check protects your crypto assets.</p>
+    
+            <div class="steps-container">
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <h3>Enter Your Wallet Information</h3>
+                    <p>Paste your information into the verification field.</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <h3>Check for Breaches</h3>
+                    <p>Our system scans databases and recent added breaches to our website to see if your wallet has been compromised.</p>
+                </div>
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <h3>Stay Secure</h3>
+                    <p>Receive instant results and secure your wallet if needed.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção "Recent Crypto Breaches" -->
+        <section id="breach-records" class="breach-records-section">
+            <h2>Recent Crypto Breaches</h2>
+            <p style="margin-top: 8px;">Explore the latest records of breached wallets, including private keys and seed phrases.</p>
+        
+            <!-- Dropdown para seleção de arquivo -->
+            <div class="file-selector">
+                <label for="breachFile">Select Breach Source:</label>
+                <select id="breachFile" onchange="loadBreachData(1)">
+                    <option value="breaches/deepweb1.txt">Deep Web Breach</option>
+                    <option value="breaches_darkweb.txt">Dark Web Leaks</option>
+                    <option value="breaches_exchanges.txt">Exchange Breach</option>
+                </select>
+                <button id="reloadBtn" class="nav-button" onclick="loadBreachData(1)">🔄 Reload</button>
+            </div>
+        
+            <!-- Botões para mudar de página -->
+            <div class="pagination-buttons">
+                <button id="prevPage" class="nav-button" onclick="changePage(-1)">◀ Prev</button>
+                <span id="pageIndicator">Page 1</span>
+                <button id="nextPage" class="nav-button" onclick="changePage(1)">Next ▶</button>
+            </div>
+        
+            <!-- Console para exibir os registros -->
+            <div class="breach-console">
+                <pre id="breachContent">Loading breaches...</pre>
+            </div>
+        </section>        
+
+        <!--Merda FAQ-->
+        <section id="faq" class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <p>Find answers to common questions about Pwned Wallet Check.</p>
+        
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">🔹 How does Pwned Wallet Check work? <span class="arrow">▼</span></button>
+                    <div class="faq-answer">
+                        <p>Our system scans multiple databases of known crypto breaches to see if your wallet address has been compromised.</p>
+                    </div>
+                </div>
+        
+                <div class="faq-item">
+                    <button class="faq-question">🔹 Is my information safe? <span class="arrow">▼</span></button>
+                    <div class="faq-answer">
+                        <p>Yes! We only check if your wallet has been part of known breaches. We use your information to find it on breaches. We do not store, log, or share your data.</p>
+                    </div>
+                </div>
+        
+                <div class="faq-item">
+                    <button class="faq-question">🔹 What should I do if my wallet is compromised? <span class="arrow">▼</span></button>
+                    <div class="faq-answer">
+                        <p>If your wallet is found in a breach, transfer your funds to a new secure wallet as soon as possible and enable additional security measures.</p>
+                    </div>
+                </div>
+        
+                <div class="faq-item">
+                    <button class="faq-question">🔹 Can I check multiple wallets? <span class="arrow">▼</span></button>
+                    <div class="faq-answer">
+                        <p>Yes! You can check as many wallet addresses as you like, one at a time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="support" class="support-section">
+            <h2>Need Help? Contact Support</h2>
+            <p>If you have any questions or need assistance, feel free to reach out to us.</p>
+        
+            <div class="support-container">
+                <div class="support-info">
+                    <h3>📩 Email Support</h3>
+                    <p><a href="mailto:">No email yet</a></p>
+        
+                    <h3>💬 Live Chat</h3>
+                    <p>Will be on our Discord</p>
+        
+                    <h3>📞 Phone</h3>
+                    <p><a href="tel:">Live Support calls on our Discord</a></p>
+                </div>
+        
+                <div class="social-links">
+                    <h3>Follow Us</h3>
+                    <p>Stay updated by following us on social media (Not created yet):</p>
+                    <div class="social-icons">
+                        <a href="#" target="_blank" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" target="_blank" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="#" target="_blank" class="social-icon"><i class="fa-brands fa-discord"></i></a>
+                        <a href="#" target="_blank" class="social-icon"><i class="fa-brands fa-telegram"></i></a>
+                    </div>                    
+                </div>
+            </div>
+        </section>
+        
+
+
+        
+    <script src="js/particulas.js"></script>
+    <script src="js/mostrar.js"></script>
+    <script>
+        // Função para exibir/ocultar as opções avançadas
+                function toggleAdvancedOptions() {
+            const advancedOptions = document.getElementById("advanced-options");
+            const button = document.querySelector(".advanced-options-btn");
+
+            if (advancedOptions.classList.contains("show")) {
+                advancedOptions.classList.remove("show");
+                button.innerHTML = 'Advanced Options <span class="arrow">▼</span>';
+            } else {
+                advancedOptions.classList.add("show");
+                button.innerHTML = 'Advanced Options <span class="arrow">▲</span>';
+            }
+        }
+
+
+        // Rola a página suavemente ao clicar nos links do menu
+     document.addEventListener("DOMContentLoaded", function () {
+    // Seleciona todos os links do menu que começam com #
+    document.querySelectorAll("nav ul li a").forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            const targetId = this.getAttribute("href"); // Obtém o ID do link clicado
+            
+            // Verifica se é um link interno válido
+            if (targetId.startsWith("#")) {
+                e.preventDefault(); // Impede o comportamento padrão do link
+                
+                const targetElement = document.querySelector(targetId); // Seleciona a seção de destino
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70, // Ajuste para considerar a altura do menu fixo
+                        behavior: "smooth" // Faz a rolagem ser suave
+                    });
+                }
+            }
+        });
+    });
+    });
+
+    // Mostra/oculta as respostas do FAQ
+    document.addEventListener("DOMContentLoaded", function () {
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach(item => {
+        const question = item.querySelector(".faq-question");
+        const answer = item.querySelector(".faq-answer");
+
+        question.addEventListener("click", function () {
+            const isActive = item.classList.contains("active");
+
+            // Fecha todas as outras respostas antes de abrir a atual
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove("active");
+                    otherItem.querySelector(".faq-answer").style.maxHeight = null;
+                }
+            });
+
+            // Alterna a visibilidade da resposta com transição suave
+            if (isActive) {
+                item.classList.remove("active");
+                answer.style.maxHeight = null;
+            } else {
+                item.classList.add("active");
+                answer.style.maxHeight = answer.scrollHeight + "px";
+            }
+        });
+    });
+});
+
+
+
+    </script>
+        
+</body>
+</html>
