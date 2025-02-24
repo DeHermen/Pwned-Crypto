@@ -675,6 +675,42 @@ header {
     color: #00e6e6;
 }
 
+/* 🔥 Footer */
+.footer {
+    width: 100%;
+    background: rgba(0, 10, 30, 0.9);
+    backdrop-filter: blur(8px);
+    padding: 20px 0;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    margin-top: 50px;
+}
+
+/* 🔹 Container do Footer */
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 🔹 Ícones sociais do Footer */
+.footer-social-icons {
+    margin-top: 10px;
+}
+
+.footer-icon {
+    font-size: 24px;
+    color: white;
+    margin: 0 10px;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.footer-icon:hover {
+    color: #00e6e6;
+    transform: scale(1.2);
+}
+
+
 /* 📱 Responsividade */
 @media (max-width: 768px) {
     .support-container {
